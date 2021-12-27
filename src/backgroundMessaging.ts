@@ -10,7 +10,7 @@ try {
   chrome.runtime.onMessage.addListener((req, sender, res) => {
     console.log("request", req);
     console.log("sender", sender);
-    console.log("res", res());
+    console.log("res", res("Hello World"));
   });
 
   //Sending msg to content script

@@ -13,6 +13,7 @@ window.onload = () => {
   checkBox.type = "checkbox";
   checkBox.id = "darkSetting";
 
+  // for youtube specifically
   document.querySelector("#end").prepend(button, checkBox, "Auto Apply?");
 
   button.addEventListener("click", () => enableDarkMode());
@@ -25,7 +26,10 @@ function checkSettings() {
   chrome.storage.local.get(["enabled"], (result) => {
     console.log("Result", result);
 
-    document.getElementById("darkSetting").checked = result.enabled;
+    const settingCheckbox = document.getElementById(
+      "darkSetting"
+    ) as HTMLInputElement;
+    settingCheckbox.checked = result.enabled;
 
     if (result.enabled) {
       enableDarkMode();
@@ -34,7 +38,10 @@ function checkSettings() {
 }
 
 function storeSetting() {
-  const isEnabled = document.getElementById("darkSetting").checked;
+  const settingCheckbox = document.getElementById(
+    "darkSetting"
+  ) as HTMLInputElement;
+  const isEnabled = settingCheckbox.checked;
 
   const setting = {
     enabled: isEnabled,
@@ -44,5 +51,6 @@ function storeSetting() {
 }
 
 function enableDarkMode() {
-  document.getElementsByTagName("ytd-app")[0].style.backgroundColor = "black";
+  const container = document.getElementsByTagName("ytd-app")[0] as HTMLElement;
+  container.style.backgroundColor = "black";
 }

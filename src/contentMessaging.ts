@@ -1,12 +1,12 @@
 // Sending msg to background script
 
-window.onload(testMessage());
+// window.onload(testMessage());
 function testMessage() {
   chrome.runtime.sendMessage(
     {
       payload: "Hello from Content",
     },
-    () => console.log(2 + 2)
+    (res) => console.log(res)
   );
 }
 
