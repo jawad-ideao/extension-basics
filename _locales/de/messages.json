@@ -1,0 +1,11 @@
+{
+  "appName": {
+    "message": "Test erweiterung"
+  },
+  "appDesc": {
+    "message": "Test beschreibung"
+  },
+  "testText": {
+    "message": "Test Text for file German"
+  }
+}
